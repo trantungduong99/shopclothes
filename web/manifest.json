@@ -1,6 +1,6 @@
 {
-    "name": "cd_cnpm",
-    "short_name": "cd_cnpm",
+    "name": "watchshop",
+    "short_name": "watchshop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
