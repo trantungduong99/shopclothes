@@ -54,6 +54,10 @@ flutter:
    - assets/images/watch31.png
    - assets/images/watch40.png
    - assets/images/watch41.png
+   - assets/images/watch50.png
+   - assets/images/watch51.png
+   - assets/images/watch60.png
+   - assets/images/watch61.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

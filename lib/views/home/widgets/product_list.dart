@@ -3,12 +3,21 @@ import 'package:flutter_watch_shop/global_widgets/product_card.dart';
 import 'package:flutter_watch_shop/models/product.dart';
 
 class ProductList extends StatefulWidget {
+  int productTypeId;
+  ProductList(productTypeId)
+  {
+    this.productTypeId = productTypeId;
+  }
   @override
-  _ProductListState createState() => _ProductListState();
+  _ProductListState createState() => _ProductListState(this.productTypeId);
 }
 
 class _ProductListState extends State<ProductList> {
   List<Product> productsByType;
+  _ProductListState(productType)
+  {
+    productsByType = products.where((i) => i.type == productType).toList();
+  }
   List<String> filters = [
     'Trending',
     'Lowest Price',
@@ -28,7 +37,7 @@ class _ProductListState extends State<ProductList> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(
-          "270 Items",
+          productsByType.length.toString() + " Items",
           style: TextStyle(fontSize: 17.0),
         ),
         DropdownButton(
@@ -51,7 +60,7 @@ class _ProductListState extends State<ProductList> {
     final list = Expanded(
       child: GridView.builder(
         itemBuilder: (BuildContext context, int index) {
-          return ProductCard(product: products[index]);
+          return ProductCard(product: productsByType[index]);
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -59,7 +68,7 @@ class _ProductListState extends State<ProductList> {
           mainAxisSpacing: 15.0,
           childAspectRatio: 0.65,
         ),
-        itemCount: products.length,
+        itemCount: productsByType.length,
       ),
     );
 

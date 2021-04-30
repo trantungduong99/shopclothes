@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   TabController tabController;
-  List<String> tabs = ["Classic", "Sports", "Smart"];
+  List<String> tabs = ["G-SOCK", "PRO TREK", "EDIFICE"];
 
   @override
   void initState() {
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage>
         margin: EdgeInsets.only(top: 30.0),
         child: TabBarView(
           controller: tabController,
-          children: <Widget>[ProductList(), ProductList(), ProductList()],
+          children: <Widget>[ProductList(0), ProductList(1), ProductList(2)],
         ),
       ),
     );
